@@ -1,0 +1,6 @@
+framework module Pods_film_quizz {
+  umbrella header "Pods-film-quizz-umbrella.h"
+
+  export *
+  module * { export * }
+}
