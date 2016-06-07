@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     let successesSegueIdentifier = "successesSegueIdentifier"
     let playSegueIdentifier = "playSegueIdentifier"
     
-    lazy var movies = [Movies]()
+    lazy var movies = [Movie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

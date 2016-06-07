@@ -14,7 +14,7 @@ class Movie {
     var excerpt: String!
     var posterPath: String!
     var id: String!
-    var actors: [Actor]()!
+    var actors: [Actor]!
     
     init(){
         

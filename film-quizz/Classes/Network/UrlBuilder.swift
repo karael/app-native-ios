@@ -10,27 +10,34 @@ import Foundation
 
 class UrlBuilder {
     
-    static let apiIdentity = NSUUID().UUIDString
+    static var apibase = "apibase"
     
-    static func getGameMovies() -> String {
-        let url = "apibase."
-    }
-    
-    static func searchMovieUrl(title: String) -> String{
-        let url = "http://api.themoviedb.org/3/search/movie?api_key=\(apiKey)&query=\(title)"
+    static func gameMoviesUrl() -> String {
+        let url = "\(apibase)"
         
         return url
+    }
+    
+    static func successMoviesUrl() -> String {
+        let url = "\(apibase)"
         
+        return url
+    }
+    
+    static func singleMovieUrl(id: String) -> String {
+        let url = "\(apibase)/api/movie/\(id)"
+        
+        return url
     }
     
     static func posteUrl(posterPath: String) -> String{
-        let url = "https://image.tmdb.org/t/p/w130\(posterPath)"
+        let url = "\(apibase)/\(posterPath)"
         
         return url
     }
     
     static func detailMovieUrl(movieId: Int) -> String {
-        let url = "http://api.themoviedb.org/3/movie/\(movieId)?api_key=\(apiKey)&language=fr"
+        let url = "\(apibase)/\(movieId)"
         
         return url
     }
