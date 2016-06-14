@@ -12,10 +12,10 @@ import SwiftyJSON
 
 class MovieManager {
     
-    static let apiIdentity = NSUUID().UUIDString
+    static let apiIdentity : String =  UserManager.apiIdentity
 
     
-    typealias GameMovies = (movies: [Movie]) -> Void
+    typealias GameMovies = (movie: Movie) -> Void
     typealias resultMovieDetail = (movieDetail: MovieDetail) -> Void
     
     static let headers = [
@@ -26,30 +26,22 @@ class MovieManager {
     static func getGameMovies(gameMovies: GameMovies) {
         
         let gameMoviesUrl = UrlBuilder.gameMoviesUrl()
-        print(gameMoviesUrl)
-        print(apiIdentity)
         
         Alamofire.request(.GET, gameMoviesUrl, headers: headers).responseJSON{ (response) in
         
-            var movies = [Movie]()
+            var movie = Movie()
  
             if let json = response.result.value as? [String: AnyObject] {
                 
-                if let results = json["data"] as? [AnyObject]{
-                    
-                    for result in results {
-                        let jsonResult = JSON(result)
-                        
-                        let movie = Movie(json: jsonResult)
-                        movies.append(movie)
-                    }
-                }
+                let jsonResult = JSON(json)["data"]
+                
+                movie = Movie(json: jsonResult)
             }
-            gameMovies(movies: movies)
+            gameMovies(movie: movie)
         }
     }
     
-    static func getDetailsMovie(movieId: String) {
+    func getDetailsMovie(movieId: String) {
         
 //        let getDetailsMovieUrl = UrlBuilder.singleMovieUrl(movieId)
         

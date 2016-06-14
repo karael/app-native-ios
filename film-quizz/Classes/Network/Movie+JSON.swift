@@ -14,8 +14,7 @@ extension Movie {
     convenience init (json : JSON){
         self.init()
         
-        self.id = json["id"].stringValue
-        self.excerpt = json["excerpt"].stringValue
+        self.id = json["_id"].stringValue
         self.title = json["title"].stringValue
         self.illuPath = json["illu"].stringValue
         self.firstHint = json["index_1"].stringValue

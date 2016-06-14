@@ -8,6 +8,7 @@
 
 import UIKit
 import AudioToolbox
+import Haneke
 
 class GameViewController: UIViewController, UITextFieldDelegate {
     
@@ -15,6 +16,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var secondHintImageView: UIImageView!
     @IBOutlet weak var thirdHintImageView: UIImageView!
     @IBOutlet weak var movieNameInput: UITextField!
+    @IBOutlet weak var movieIlluImageView: UIImageView!
     
     var openHints : [Int] = [0, 0, 0]
     
@@ -28,6 +30,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidLoad() {
+        print("Movie : \(movie.title), \(movie.id), \(movie.illuPath)")
         
         movieNameInput.delegate = self
         
@@ -73,6 +76,14 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         secondHintImageView.userInteractionEnabled = true
         thirdHintImageView.addGestureRecognizer(thirdHintGesture)
         thirdHintImageView.userInteractionEnabled = true
+        
+        
+        //Setting image
+        let illuUrlString = UrlBuilder.illuUrl(movie.illuPath)
+        
+        if let illuUrl = NSURL(string: illuUrlString){
+            self.movieIlluImageView.hnk_setImageFromURL(illuUrl)
+        }
         
 
     }

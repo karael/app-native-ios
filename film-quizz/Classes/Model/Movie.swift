@@ -10,7 +10,6 @@ import Foundation
 
 class Movie {
     var title: String!
-    var excerpt: String!
     var illuPath: String!
     var id: String!
     var firstHint: String!

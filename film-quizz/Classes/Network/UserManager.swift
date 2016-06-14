@@ -12,7 +12,7 @@ import SwiftyJSON
 
 class UserManager {
     
-    static var apiIdentity = NSUUID().UUIDString
+    static let apiIdentity : String =  (NSUserDefaults.standardUserDefaults().objectForKey("userUUID") ?? NSUUID().UUIDString) as! String
     
     static let headers = [
         "X-app-UUID": apiIdentity,
@@ -48,6 +48,7 @@ class UserManager {
             if let json = response.result.value as? [String:AnyObject] {
                 if  JSON(json)["meta"]["code"].intValue == 200 {
                     defaults.setObject(JSON(json)["data"]["_id"].stringValue, forKey: "userId")
+                    defaults.setObject(self.apiIdentity, forKey: "userUUID")
                 }else {
                     self.createUser()
                 }

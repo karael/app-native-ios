@@ -13,8 +13,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var PlayButton: UIButton!
     @IBOutlet weak var SuccessButton: UIButton!
     
-    lazy var gameMovies = [Movie]()
-    
     let launchedBefore = NSUserDefaults.standardUserDefaults().boolForKey("launchedBefore")
 
     
@@ -42,13 +40,9 @@ class ViewController: UIViewController {
         SuccessButton.layer.backgroundColor = UIColor(red:1.00, green:1.00, blue:1.00, alpha:1.0).CGColor
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        MovieManager.getGameMovies() { (movies) in
-        
-            self.gameMovies.removeAll()
-            self.gameMovies += movies
-            print("coucou")
-            print(movies)
-            
+        MovieManager.getGameMovies() { (movie) in
+            self.gameMovie = movie
+            print("Movie : \(self.gameMovie.title), \(self.gameMovie.id), \(self.gameMovie.illuPath), \(self.gameMovie.firstHint), \(self.gameMovie.secondHint), \(self.gameMovie.thirdHint)")
         }
 
         
@@ -69,8 +63,6 @@ class ViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        var movies = gameMovies
-        
         let backItem = UIBarButtonItem()
         backItem.title = ""
         navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
@@ -79,14 +71,11 @@ class ViewController: UIViewController {
             if segueIdentifier == "gameSegueIdentifier" {
                 let gameViewController = segue.destinationViewController as! GameViewController
                 
-                let movie = movies[0]
-                gameViewController.movie = movie
+                
+                gameViewController.movie = self.gameMovie
                 
             }
         }
     }
-    
-
-    
 }
 

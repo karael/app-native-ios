@@ -121,10 +121,10 @@ cinématographique</string>
             </objects>
             <point key="canvasLocation" x="102" y="-309"/>
         </scene>
-        <!--View Controller-->
+        <!--Success View Controller-->
         <scene sceneID="mZj-G1-cjV">
             <objects>
-                <viewController storyboardIdentifier="successesView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ndz-Lb-z8V" customClass="ViewController" customModule="film_quizz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="successesView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ndz-Lb-z8V" customClass="SuccessViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fuU-w3-rvD"/>
                         <viewControllerLayoutGuide type="bottom" id="e6a-Wu-JUu"/>
@@ -221,7 +221,7 @@ cinématographique</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_film" translatesAutoresizingMaskIntoConstraints="NO" id="sqx-sV-BF9">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sqx-sV-BF9">
                                 <rect key="frame" x="165" y="85" width="270" height="308"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="270" id="l4p-5D-geL"/>
@@ -262,6 +262,7 @@ cinématographique</string>
                     </view>
                     <connections>
                         <outlet property="firstHintImageView" destination="iAC-iy-VgM" id="BlM-7U-jL0"/>
+                        <outlet property="movieIlluImageView" destination="sqx-sV-BF9" id="QoH-lK-ptV"/>
                         <outlet property="movieNameInput" destination="moi-RA-ZaZ" id="XWR-8u-RFt"/>
                         <outlet property="secondHintImageView" destination="WX4-MF-bkz" id="KyR-7z-QHo"/>
                         <outlet property="thirdHintImageView" destination="Atk-GH-PNV" id="vLe-qu-Uks"/>
@@ -456,6 +457,5 @@ cinématographique</string>
         <image name="BG_Logo" width="232" height="232"/>
         <image name="Hint" width="47" height="47"/>
         <image name="Img_Film_cover" width="375" height="210"/>
-        <image name="Img_film" width="72" height="96"/>
     </resources>
 </document>
