@@ -89,7 +89,7 @@ cinématographique</string>
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="whR-RT-Jjc" kind="show" id="dTV-Zd-rEW"/>
+                                    <segue destination="whR-RT-Jjc" kind="show" identifier="gameSegueIdentifier" id="dTV-Zd-rEW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -187,7 +187,7 @@ cinématographique</string>
         <!--Game View Controller-->
         <scene sceneID="ZlE-zm-iUg">
             <objects>
-                <viewController storyboardIdentifier="gameSegueIdentifier" useStoryboardIdentifierAsRestorationIdentifier="YES" id="whR-RT-Jjc" customClass="GameViewController" customModule="film_quizz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="whR-RT-Jjc" customClass="GameViewController" customModule="film_quizz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SQe-eA-pll"/>
                         <viewControllerLayoutGuide type="bottom" id="FnP-gw-s3B"/>
@@ -211,8 +211,8 @@ cinématographique</string>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter movie name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="moi-RA-ZaZ">
-                                <rect key="frame" x="200" y="530" width="200" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter movie name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="moi-RA-ZaZ">
+                                <rect key="frame" x="200" y="530" width="200" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Idp-Ha-BMS"/>
                                     <constraint firstAttribute="width" constant="200" id="ncP-9b-deC"/>
@@ -227,6 +227,12 @@ cinématographique</string>
                                     <constraint firstAttribute="width" constant="270" id="l4p-5D-geL"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOADING, PLEASE WAIT..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEy-62-fe0">
+                                <rect key="frame" x="193.5" y="289" width="213" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.23921568630000001" blue="0.2784313725" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -239,8 +245,10 @@ cinématographique</string>
                             <constraint firstItem="WX4-MF-bkz" firstAttribute="leading" secondItem="iAC-iy-VgM" secondAttribute="trailing" constant="20" id="FHf-Yd-Ond"/>
                             <constraint firstItem="WX4-MF-bkz" firstAttribute="centerX" secondItem="moi-RA-ZaZ" secondAttribute="centerX" id="JbK-Dv-eag"/>
                             <constraint firstItem="Atk-GH-PNV" firstAttribute="leading" secondItem="WX4-MF-bkz" secondAttribute="trailing" constant="20" id="Lep-Jm-14i"/>
+                            <constraint firstItem="bEy-62-fe0" firstAttribute="centerX" secondItem="yz1-4W-GPK" secondAttribute="centerX" id="NkN-a9-kJT"/>
                             <constraint firstItem="WX4-MF-bkz" firstAttribute="leading" secondItem="Atk-GH-PNV" secondAttribute="trailing" constant="20" id="PSV-mo-NU3"/>
                             <constraint firstItem="iAC-iy-VgM" firstAttribute="top" secondItem="WX4-MF-bkz" secondAttribute="top" id="SBZ-M9-6Y6"/>
+                            <constraint firstItem="bEy-62-fe0" firstAttribute="centerY" secondItem="yz1-4W-GPK" secondAttribute="centerY" id="UH4-Fi-c8V"/>
                             <constraint firstItem="sqx-sV-BF9" firstAttribute="centerX" secondItem="yz1-4W-GPK" secondAttribute="centerX" id="UvV-0D-85s"/>
                             <constraint firstItem="iAC-iy-VgM" firstAttribute="bottom" secondItem="WX4-MF-bkz" secondAttribute="bottom" id="Y3h-7w-ZvH"/>
                             <constraint firstItem="WX4-MF-bkz" firstAttribute="leading" secondItem="iAC-iy-VgM" secondAttribute="trailing" constant="20" id="Yqe-cO-vU9"/>
@@ -262,6 +270,8 @@ cinématographique</string>
                     </view>
                     <connections>
                         <outlet property="firstHintImageView" destination="iAC-iy-VgM" id="BlM-7U-jL0"/>
+                        <outlet property="hintLabel" destination="MgJ-Xm-A8s" id="x3O-Hd-ebS"/>
+                        <outlet property="loadingLabel" destination="bEy-62-fe0" id="Wq8-Xf-Fgz"/>
                         <outlet property="movieIlluImageView" destination="sqx-sV-BF9" id="QoH-lK-ptV"/>
                         <outlet property="movieNameInput" destination="moi-RA-ZaZ" id="XWR-8u-RFt"/>
                         <outlet property="secondHintImageView" destination="WX4-MF-bkz" id="KyR-7z-QHo"/>

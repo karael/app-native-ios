@@ -6,31 +6,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "film-quizz/Classes/ViewControllers/GameViewController.swift"
-            timestampString = "487627421.173437"
+            timestampString = "487633928.712391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "showHint(_:)"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "viewDidLoad()"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "film-quizz/Classes/Network/Movie+JSON.swift"
-            timestampString = "487627291.619013"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -40,75 +26,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "film-quizz/Classes/ViewControllers/GameViewController.swift"
-            timestampString = "487627181.337266"
+            timestampString = "487633928.712391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "film-quizz/Classes/ViewControllers/GameViewController.swift"
-            timestampString = "487627406.515932"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "film-quizz/Classes/ViewControllers/GameViewController.swift"
-            timestampString = "487627407.987988"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "film_quizz.GameViewController.viewDidLoad () -&gt; ()"
+                  symbolName = "film_quizz.GameViewController.(viewDidLoad () -&gt; ()).(closure #1)"
                   moduleName = "film-quizz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/paulgabriel/Drive/HETIC%20PERSO/H3/Mobile/Switf/CoucouleFolder/film-quizz/film-quizz/Classes/ViewControllers/GameViewController.swift"
-                  timestampString = "487627755.168553"
+                  timestampString = "487633110.15615"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "6524">
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "2592">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "film_quizz.GameViewController.viewDidLoad () -&gt; ()"
+                  symbolName = "film_quizz.GameViewController.(viewDidLoad () -&gt; ()).(closure #1).(closure #1)"
                   moduleName = "film-quizz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/paulgabriel/Drive/HETIC%20PERSO/H3/Mobile/Switf/CoucouleFolder/film-quizz/film-quizz/Classes/ViewControllers/GameViewController.swift"
-                  timestampString = "487627755.168741"
+                  timestampString = "487633110.156256"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
-                  offsetFromSymbolStart = "6584">
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "1064">
                </Location>
             </Locations>
          </BreakpointContent>

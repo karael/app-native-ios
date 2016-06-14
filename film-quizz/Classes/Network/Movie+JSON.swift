@@ -17,9 +17,12 @@ extension Movie {
         self.id = json["_id"].stringValue
         self.title = json["title"].stringValue
         self.illuPath = json["illu"].stringValue
-        self.firstHint = json["index_1"].stringValue
-        self.secondHint = json["index_2"].stringValue
-        self.thirdHint = json["index_3"].stringValue
+        self.firstHintType = json["index_1"].stringValue.characters.split(";").map(String.init)[0]
+        self.firstHint = json["index_1"].stringValue.characters.split(";").map(String.init)[1]
+        self.secondHintType = json["index_2"].stringValue.characters.split(";").map(String.init)[0]
+        self.secondHint = json["index_2"].stringValue.characters.split(";").map(String.init)[1]
+        self.thirdHintType = json["index_3"].stringValue.characters.split(";").map(String.init)[0]
+        self.thirdHint = json["index_3"].stringValue.characters.split(";").map(String.init)[1]
         
     }
     

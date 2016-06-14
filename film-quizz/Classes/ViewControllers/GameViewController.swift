@@ -17,12 +17,14 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var thirdHintImageView: UIImageView!
     @IBOutlet weak var movieNameInput: UITextField!
     @IBOutlet weak var movieIlluImageView: UIImageView!
+    @IBOutlet weak var hintLabel: UILabel!
+    @IBOutlet weak var loadingLabel: UILabel!
     
     var openHints : [Int] = [0, 0, 0]
     
     var hintPopinController: HintPopinController!
     
-    var movie: Movie!
+    lazy var movie = Movie()
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -30,7 +32,48 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidLoad() {
-        print("Movie : \(movie.title), \(movie.id), \(movie.illuPath)")
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        movieNameInput.alpha = 0
+        movieIlluImageView.alpha = 0
+        firstHintImageView.alpha = 0
+        secondHintImageView.alpha = 0
+        thirdHintImageView.alpha = 0
+        hintLabel.alpha = 0
+        
+        MovieManager.getGameMovies() { (movie) in
+            self.movie = movie
+            print("Movie : \(self.movie.title), \(self.movie.id), \(self.movie.illuPath), \(self.movie.firstHint), \(self.movie.secondHint), \(self.movie.thirdHint)")
+            //Setting image
+            let illuUrlString = movie.illuPath
+            
+            if let illuUrl = NSURL(string: illuUrlString){
+                self.movieIlluImageView.hnk_setImageFromURL(illuUrl)
+            }
+            
+            UIView.animateWithDuration(0.25, animations: {
+                self.movieNameInput.alpha = 1.0
+                self.movieIlluImageView.alpha = 1.0
+                self.firstHintImageView.alpha = 1.0
+                self.secondHintImageView.alpha = 1.0
+                self.thirdHintImageView.alpha = 1.0
+                self.hintLabel.alpha = 0
+                self.loadingLabel.alpha = 0
+                self.title = "Score : 1000"
+            });
+            
+            //Listening to tap on images
+            let firstHintGesture = UITapGestureRecognizer(target: self, action: #selector(GameViewController.hintTapped(_:)))
+            let secondHintGesture = UITapGestureRecognizer(target: self, action: #selector(GameViewController.hintTapped(_:)))
+            let thirdHintGesture = UITapGestureRecognizer(target: self, action: #selector(GameViewController.hintTapped(_:)))
+            self.firstHintImageView.addGestureRecognizer(firstHintGesture)
+            self.firstHintImageView.userInteractionEnabled = true
+            self.secondHintImageView.addGestureRecognizer(secondHintGesture)
+            self.secondHintImageView.userInteractionEnabled = true
+            self.thirdHintImageView.addGestureRecognizer(thirdHintGesture)
+            self.thirdHintImageView.userInteractionEnabled = true
+        }
+
         
         movieNameInput.delegate = self
         
@@ -49,9 +92,9 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         movieNameInput.attributedPlaceholder = placeholder;
         
         //Show Navigation Bar
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.title = "Score : 2200"
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+        let titleTint: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = titleTint as? [String : AnyObject]
+        
 
         
         //Adding skip button to navbar
@@ -59,32 +102,12 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         navigationItem.rightBarButtonItem = play
         
         // Customizing the navBar text color
-        nav!.tintColor = UIColor.whiteColor()
+        nav?.tintColor = UIColor.whiteColor()
         // Customizing the navBar background color
-        nav!.barTintColor = UIColor(red:0.13, green:0.13, blue:0.16, alpha:1.0)
-        nav!.translucent = false
+        nav?.barTintColor = UIColor(red:0.13, green:0.13, blue:0.16, alpha:1.0)
+        nav?.translucent = false
         //Getting Light theme for statusBar
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-        
-        //Listening to tap on images
-        let firstHintGesture = UITapGestureRecognizer(target: self, action: #selector(GameViewController.hintTapped(_:)))
-        let secondHintGesture = UITapGestureRecognizer(target: self, action: #selector(GameViewController.hintTapped(_:)))
-        let thirdHintGesture = UITapGestureRecognizer(target: self, action: #selector(GameViewController.hintTapped(_:)))
-        firstHintImageView.addGestureRecognizer(firstHintGesture)
-        firstHintImageView.userInteractionEnabled = true
-        secondHintImageView.addGestureRecognizer(secondHintGesture)
-        secondHintImageView.userInteractionEnabled = true
-        thirdHintImageView.addGestureRecognizer(thirdHintGesture)
-        thirdHintImageView.userInteractionEnabled = true
-        
-        
-        //Setting image
-        let illuUrlString = UrlBuilder.illuUrl(movie.illuPath)
-        
-        if let illuUrl = NSURL(string: illuUrlString){
-            self.movieIlluImageView.hnk_setImageFromURL(illuUrl)
-        }
-        
 
     }
     
@@ -132,7 +155,24 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     }
     
     func skipTapped(gesture: UIGestureRecognizer) {
-        print("skip tapped")
+        self.nextMovie()
+        print("skip")
+    }
+    
+    func nextMovie() {
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextMovie = storyboard.instantiateViewControllerWithIdentifier("GameView") as! GameViewController
+        let home = storyboard.instantiateViewControllerWithIdentifier("homeView") as! ViewController
+
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        backItem.target = home
+        
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        
+        self.navigationController?.pushViewController(nextMovie, animated: false)
+
     }
     
     func showHint(gesture: UIGestureRecognizer) {
@@ -140,21 +180,24 @@ class GameViewController: UIViewController, UITextFieldDelegate {
             
             if(hint == 0){
                 self.openHints[index] = 1
-                print(index)
-                print(self.openHints)
                 switch index {
                 case 0:
                     self.firstHintImageView.image = UIImage(named: "Hint_open")
+                    self.hintPopinController.showHint(movie.firstHintType, hint: movie.firstHint)
+                    self.title = "Score : 800"
                 case 1:
                     self.secondHintImageView.image = UIImage(named: "Hint_open")
+                    self.hintPopinController.showHint(movie.secondHintType, hint: movie.secondHint)
+                    self.title = "Score : 600"
                 case 2:
                     self.thirdHintImageView.image = UIImage(named: "Hint_open")
+                    self.hintPopinController.showHint(movie.thirdHintType, hint: movie.thirdHint)
+                    self.title = "Score : 400"
                 default:
                     self.firstHintImageView.image = UIImage(named: "Hint_open")
+                    self.hintPopinController.showHint(movie.secondHintType, hint: movie.secondHint)
+                    self.title = "Score : 1000"
                 }
-
-                self.hintPopinController.showHint("int \(index) open", hint: "Lol")
-                
                 break
             }
         }
