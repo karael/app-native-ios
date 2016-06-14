@@ -10,11 +10,13 @@ import Foundation
 
 class Movie {
     var title: String!
-    var releaseDate: String!
     var excerpt: String!
-    var posterPath: String!
+    var illuPath: String!
     var id: String!
-    var actors: [Actor]!
+    var firstHint: String!
+    var secondHint: String!
+    var thirdHint: String!
+    
     
     init(){
         
@@ -22,6 +24,5 @@ class Movie {
     
     init(title: String, releaseDate: String){
         self.title = title
-        self.releaseDate = releaseDate
     }
 }

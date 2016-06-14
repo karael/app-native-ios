@@ -10,13 +10,75 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "film-quizz/Classes/Model/Movie.swift"
-            timestampString = "486941981.888825"
+            timestampString = "487479802.761567"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "Movie"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "film_quizz.Movie.init () -&gt; film_quizz.Movie"
+                  moduleName = "film-quizz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulgabriel/Drive/HETIC%20PERSO/H3/Mobile/Switf/CoucouleFolder/film-quizz/film-quizz/Classes/Model/Movie.swift"
+                  timestampString = "487480227.143232"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "film_quizz.Movie.init (title : Swift.String, releaseDate : Swift.String) -&gt; film_quizz.Movie"
+                  moduleName = "film-quizz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulgabriel/Drive/HETIC%20PERSO/H3/Mobile/Switf/CoucouleFolder/film-quizz/film-quizz/Classes/Model/Movie.swift"
+                  timestampString = "487480227.143453"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "328">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "film_quizz.Movie.firstHint.getter : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;"
+                  moduleName = "film-quizz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulgabriel/Drive/HETIC%20PERSO/H3/Mobile/Switf/CoucouleFolder/film-quizz/film-quizz/Classes/Model/Movie.swift"
+                  timestampString = "487480227.143611"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "film_quizz.Movie.firstHint.setter : Swift.ImplicitlyUnwrappedOptional&lt;Swift.String&gt;"
+                  moduleName = "film-quizz"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulgabriel/Drive/HETIC%20PERSO/H3/Mobile/Switf/CoucouleFolder/film-quizz/film-quizz/Classes/Model/Movie.swift"
+                  timestampString = "487480227.143767"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -25,29 +87,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "film-quizz/Classes/Network/MovieManager.swift"
-            timestampString = "486951418.934175"
+            filePath = "film-quizz/Classes/ViewControllers/GameViewController.swift"
+            timestampString = "487479802.761567"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
-            landmarkName = "getGameMovies()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "film-quizz/Classes/Network/MovieManager.swift"
-            timestampString = "486952767.434046"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "getGameMovies()"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
+            landmarkName = "showHint(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

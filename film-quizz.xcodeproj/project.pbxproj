@@ -15,11 +15,18 @@
 		D607ABEF1D06406E00EE65AA /* Movie+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D607ABEE1D06406E00EE65AA /* Movie+JSON.swift */; };
 		D607ABF51D064D5300EE65AA /* MovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D607ABF41D064D5300EE65AA /* MovieManager.swift */; };
 		D63AA5671D06189B00FC3CEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63AA5661D06189B00FC3CEF /* ViewController.swift */; };
-		D65121501D059E9B000D3DC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D65121411D059E9B000D3DC2 /* Assets.xcassets */; };
 		D65121511D059E9B000D3DC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65121421D059E9B000D3DC2 /* LaunchScreen.storyboard */; };
 		D65121521D059E9B000D3DC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D65121441D059E9B000D3DC2 /* Main.storyboard */; };
 		D65121531D059E9B000D3DC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D65121471D059E9B000D3DC2 /* AppDelegate.swift */; };
 		D65121551D059E9B000D3DC2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D651214C1D059E9B000D3DC2 /* Info.plist */; };
+		D6A626191D0DFCDD00D2C95E /* hintPopinController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A626181D0DFCDD00D2C95E /* hintPopinController.xib */; };
+		D6A6261B1D0DFDC600D2C95E /* HintPopinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A6261A1D0DFDC600D2C95E /* HintPopinController.swift */; };
+		D6A6261C1D0E00EA00D2C95E /* HintPopinController.swift in Resources */ = {isa = PBXBuildFile; fileRef = D6A6261A1D0DFDC600D2C95E /* HintPopinController.swift */; };
+		D6A626201D0E098200D2C95E /* congratPopin.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6A6261E1D0E098200D2C95E /* congratPopin.xib */; };
+		D6A626211D0E098200D2C95E /* CongratPopinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A6261F1D0E098200D2C95E /* CongratPopinController.swift */; };
+		D6A626271D0E34A000D2C95E /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6A626261D0E34A000D2C95E /* UserManager.swift */; };
+		D6B48B641D09A0CD00D75F60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6B48B631D09A0CD00D75F60 /* Assets.xcassets */; };
+		D6B48B841D09B29D00D75F60 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B48B831D09B29D00D75F60 /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,13 +40,19 @@
 		D607ABEE1D06406E00EE65AA /* Movie+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Movie+JSON.swift"; sourceTree = "<group>"; };
 		D607ABF41D064D5300EE65AA /* MovieManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieManager.swift; sourceTree = "<group>"; };
 		D63AA5661D06189B00FC3CEF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D64BFF2D1D059F2E006724E4 /* film-quizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "film-quizz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D65121411D059E9B000D3DC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D65121431D059E9B000D3DC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D65121451D059E9B000D3DC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D65121471D059E9B000D3DC2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D651214C1D059E9B000D3DC2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D651214D1D059E9B000D3DC2 /* film-quizz.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "film-quizz.xcodeproj"; sourceTree = "<group>"; };
+		D6A626181D0DFCDD00D2C95E /* hintPopinController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = hintPopinController.xib; sourceTree = "<group>"; };
+		D6A6261A1D0DFDC600D2C95E /* HintPopinController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HintPopinController.swift; sourceTree = "<group>"; };
+		D6A6261E1D0E098200D2C95E /* congratPopin.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = congratPopin.xib; sourceTree = "<group>"; };
+		D6A6261F1D0E098200D2C95E /* CongratPopinController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CongratPopinController.swift; sourceTree = "<group>"; };
+		D6A626231D0E1D4F00D2C95E /* film-quizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "film-quizz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6A626261D0E34A000D2C95E /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		D6B48B631D09A0CD00D75F60 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D6B48B831D09B29D00D75F60 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +81,7 @@
 				D651213F1D059E9B000D3DC2 /* film-quizz */,
 				FF9F97FD456AC8BEADAC69D3 /* Pods */,
 				D0E15EC718186D7D0456A419 /* Frameworks */,
-				D64BFF2D1D059F2E006724E4 /* film-quizz.app */,
+				D6A626231D0E1D4F00D2C95E /* film-quizz.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,7 +97,7 @@
 		D65121401D059E9B000D3DC2 /* film-quizz */ = {
 			isa = PBXGroup;
 			children = (
-				D65121411D059E9B000D3DC2 /* Assets.xcassets */,
+				D6B48B631D09A0CD00D75F60 /* Assets.xcassets */,
 				D65121421D059E9B000D3DC2 /* LaunchScreen.storyboard */,
 				D65121441D059E9B000D3DC2 /* Main.storyboard */,
 				D65121461D059E9B000D3DC2 /* Classes */,
@@ -97,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				D65121471D059E9B000D3DC2 /* AppDelegate.swift */,
+				D6A6261D1D0E098200D2C95E /* CongratPopin */,
+				D6A626171D0DFCDD00D2C95E /* HintPopin */,
 				D65121481D059E9B000D3DC2 /* Model */,
 				D65121491D059E9B000D3DC2 /* Network */,
 				D651214A1D059E9B000D3DC2 /* ViewControllers */,
@@ -120,6 +135,7 @@
 				D607ABF41D064D5300EE65AA /* MovieManager.swift */,
 				D607ABEC1D062E5400EE65AA /* UrlBuilder.swift */,
 				D607ABEE1D06406E00EE65AA /* Movie+JSON.swift */,
+				D6A626261D0E34A000D2C95E /* UserManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -128,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				D63AA5661D06189B00FC3CEF /* ViewController.swift */,
+				D6B48B831D09B29D00D75F60 /* GameViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -137,6 +154,24 @@
 			children = (
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D6A626171D0DFCDD00D2C95E /* HintPopin */ = {
+			isa = PBXGroup;
+			children = (
+				D6A6261A1D0DFDC600D2C95E /* HintPopinController.swift */,
+				D6A626181D0DFCDD00D2C95E /* hintPopinController.xib */,
+			);
+			path = HintPopin;
+			sourceTree = "<group>";
+		};
+		D6A6261D1D0E098200D2C95E /* CongratPopin */ = {
+			isa = PBXGroup;
+			children = (
+				D6A6261E1D0E098200D2C95E /* congratPopin.xib */,
+				D6A6261F1D0E098200D2C95E /* CongratPopinController.swift */,
+			);
+			path = CongratPopin;
 			sourceTree = "<group>";
 		};
 		FF9F97FD456AC8BEADAC69D3 /* Pods */ = {
@@ -168,7 +203,7 @@
 			);
 			name = "film-quizz";
 			productName = "film-quizz";
-			productReference = D64BFF2D1D059F2E006724E4 /* film-quizz.app */;
+			productReference = D6A626231D0E1D4F00D2C95E /* film-quizz.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -183,6 +218,7 @@
 				TargetAttributes = {
 					D65121291D059DFD000D3DC2 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = PB6E55G674;
 					};
 				};
 			};
@@ -215,9 +251,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D65121501D059E9B000D3DC2 /* Assets.xcassets in Resources */,
+				D6A6261C1D0E00EA00D2C95E /* HintPopinController.swift in Resources */,
 				D65121521D059E9B000D3DC2 /* Main.storyboard in Resources */,
+				D6A626191D0DFCDD00D2C95E /* hintPopinController.xib in Resources */,
+				D6A626201D0E098200D2C95E /* congratPopin.xib in Resources */,
 				D65121511D059E9B000D3DC2 /* LaunchScreen.storyboard in Resources */,
+				D6B48B641D09A0CD00D75F60 /* Assets.xcassets in Resources */,
 				D65121551D059E9B000D3DC2 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,8 +318,12 @@
 			files = (
 				D607ABEF1D06406E00EE65AA /* Movie+JSON.swift in Sources */,
 				D63AA5671D06189B00FC3CEF /* ViewController.swift in Sources */,
+				D6A626211D0E098200D2C95E /* CongratPopinController.swift in Sources */,
 				D65121531D059E9B000D3DC2 /* AppDelegate.swift in Sources */,
+				D6A6261B1D0DFDC600D2C95E /* HintPopinController.swift in Sources */,
 				D607ABEB1D062B5300EE65AA /* MovieDetail.swift in Sources */,
+				D6A626271D0E34A000D2C95E /* UserManager.swift in Sources */,
+				D6B48B841D09B29D00D75F60 /* GameViewController.swift in Sources */,
 				D607ABE51D0622D800EE65AA /* Movie.swift in Sources */,
 				D607ABED1D062E5400EE65AA /* UrlBuilder.swift in Sources */,
 				D607ABF51D064D5300EE65AA /* MovieManager.swift in Sources */,
@@ -398,10 +441,13 @@
 			baseConfigurationReference = 71DDFD6564C4093DB25452F0 /* Pods-film-quizz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "film-quizz/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "P.film-quizz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -411,10 +457,13 @@
 			baseConfigurationReference = 5B636CEB97084223917CD792 /* Pods-film-quizz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "film-quizz/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "P.film-quizz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

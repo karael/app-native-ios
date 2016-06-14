@@ -17,8 +17,10 @@ extension Movie {
         self.id = json["id"].stringValue
         self.excerpt = json["excerpt"].stringValue
         self.title = json["title"].stringValue
-        self.posterPath = json["poster_path"].stringValue
-        self.releaseDate = json["release_date"].stringValue
+        self.illuPath = json["illu"].stringValue
+        self.firstHint = json["index_1"].stringValue
+        self.secondHint = json["index_2"].stringValue
+        self.thirdHint = json["index_3"].stringValue
         
     }
     

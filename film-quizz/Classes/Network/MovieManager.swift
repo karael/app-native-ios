@@ -10,22 +10,26 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-class GameMovieManager {
+class MovieManager {
     
     static let apiIdentity = NSUUID().UUIDString
+
     
-    typealias resultMovie = (movies: [Movie]) -> Void
+    typealias GameMovies = (movies: [Movie]) -> Void
     typealias resultMovieDetail = (movieDetail: MovieDetail) -> Void
     
     static let headers = [
-        "X-app-UUID": apiIdentity
+        "X-app-UUID": apiIdentity,
+        "Content-Type": "application/json"
     ]
     
-    static func getGameMovies() {
+    static func getGameMovies(gameMovies: GameMovies) {
         
-        let getMoviesUrl = UrlBuilder.gameMoviesUrl()
+        let gameMoviesUrl = UrlBuilder.gameMoviesUrl()
+        print(gameMoviesUrl)
+        print(apiIdentity)
         
-        Alamofire.request(.GET, getMoviesUrl, headers: headers).responseJSON{ (response) in
+        Alamofire.request(.GET, gameMoviesUrl, headers: headers).responseJSON{ (response) in
         
             var movies = [Movie]()
  
@@ -34,32 +38,21 @@ class GameMovieManager {
                 if let results = json["data"] as? [AnyObject]{
                     
                     for result in results {
-                        let movieId = JSON(result)["id"].stringValue
+                        let jsonResult = JSON(result)
                         
-                        let getSingleMovieUrl = UrlBuilder.singleMovieUrl(movieId)
-                        
-                        Alamofire.request(.GET, getSingleMovieUrl, headers: headers).responseJSON { (response) in
-                            
-                            if (response.result.value as? [String:AnyObject]) != nil {
-                                if let movieData = json["data"] as? [AnyObject] {
-                                    let jsonMovie = JSON(movieData)
-                                    let movie = Movie(json: jsonMovie)
-                                    
-                                    movies.append(movie)
-                                }
-                            }
-                        }
+                        let movie = Movie(json: jsonResult)
+                        movies.append(movie)
                     }
                 }
             }
-            resultMovie(movies: movies)
+            gameMovies(movies: movies)
         }
     }
     
     static func getDetailsMovie(movieId: String) {
         
-        let getDetailsMovieUrl = UrlBuilder.singleMovieUrl(movieId)
+//        let getDetailsMovieUrl = UrlBuilder.singleMovieUrl(movieId)
         
-        
+//        return getDetailsMovieUrl
     }
 }

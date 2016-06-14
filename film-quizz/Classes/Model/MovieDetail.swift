@@ -13,26 +13,24 @@ class MovieDetail {
     var id: String!
     var name: String!
     var excerpt: String!
-    var posterPath: String!
+    var coverPath: String!
     var actors: [Actor]!
-    var hint1: String!
-    var hint2: String!
-    var hint3: String!
-    
+    var genre: String!
+    var releaseDate: String!
     
     init(){
         
     }
     
-    init(id: String, name: String, excerpt: String, posterPath: String, actors: [Actor], hint1: String, hint2: String, hint3: String){
+    init(id: String, name: String, excerpt: String, coverPath: String, actors: [Actor], genre: String, releaseDate: String){
         self.id = id
         self.name = name
         self.excerpt = excerpt
-        self.posterPath = posterPath
+        self.coverPath = coverPath
         self.actors = actors
-        self.hint1 = hint1
-        self.hint2 = hint2
-        self.hint3 = hint3
+        self.genre = genre
+        self.releaseDate = releaseDate
+
     }
     
 }
