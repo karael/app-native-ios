@@ -11,6 +11,7 @@ import Foundation
 class Actor {
     var name: String!
     var role: String!
+    var poster: String!
     
     init(){
         

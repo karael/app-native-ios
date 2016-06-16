@@ -8,19 +8,21 @@
 
 import UIKit
 
-class SuccessViewController: UIViewController {
+class RelatedViewController: UIViewController {
     
     
     @IBOutlet weak var moviesListTableView: UITableView!
     
+    
+    var movieId: String!
     
     lazy var moviesList = [MovieList]()
     lazy var items = [[AnyObject]]()
     
     override func viewDidLoad() {
         
-        UserManager.getSuccessList() { (moviesList) in
-        
+        MovieManager.getRelatedList(self.movieId) { (moviesList) in
+            
             self.reloadMoviesList(moviesList)
             for movieList in moviesList {
                 print(movieList.title)
@@ -28,7 +30,7 @@ class SuccessViewController: UIViewController {
             
         }
         
-        self.title = "Successes"
+        self.title = "Related movies"
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         let titleTint: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.titleTextAttributes = titleTint as? [String : AnyObject]
@@ -54,26 +56,25 @@ class SuccessViewController: UIViewController {
         
         self.items.append(self.moviesList)
         
-//        self.moviesListTableView.userInteractionEnabled = false
         self.moviesListTableView.reloadData()
         
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> SuccessTableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> RelatedTableViewCell {
         let section = indexPath.section
         let row = indexPath.row
         
         if section == 0 {
-            let movieListCell = tableView.dequeueReusableCellWithIdentifier(SuccessTableViewCell.identifier, forIndexPath: indexPath) as! SuccessTableViewCell
-        
+            let movieListCell = tableView.dequeueReusableCellWithIdentifier(RelatedTableViewCell.identifier, forIndexPath: indexPath) as! RelatedTableViewCell
+            
             let movieList = moviesList[row]
-        
+            
             movieListCell.movieList = movieList
             movieListCell.selectionStyle = .None
-        
+            
             return movieListCell
         } else {
-            return SuccessTableViewCell()
+            return RelatedTableViewCell()
         }
     }
     

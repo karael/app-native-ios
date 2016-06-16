@@ -23,6 +23,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     var openHints : [Int] = [0, 0, 0]
     
     var hintPopinController: HintPopinController!
+    var congratsPopinController: CongratsPopinController!
     
     lazy var movie = Movie()
     
@@ -57,7 +58,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
                 self.firstHintImageView.alpha = 1.0
                 self.secondHintImageView.alpha = 1.0
                 self.thirdHintImageView.alpha = 1.0
-                self.hintLabel.alpha = 0
+                self.hintLabel.alpha = 1.0
                 self.loadingLabel.alpha = 0
                 self.title = "Score : 1000"
             });
@@ -82,6 +83,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         self.view.backgroundColor = UIColor(red:0.19, green:0.18, blue:0.22, alpha:1.0)
         
         //Custom Input
+        movieNameInput.autocorrectionType = .No;
         movieNameInput.textColor = UIColor(red:0.59, green:0.59, blue:0.59, alpha:1.0)
         movieNameInput.backgroundColor = UIColor(red:0.19, green:0.18, blue:0.22, alpha:1.0)
         movieNameInput.layer.cornerRadius = 25
@@ -111,25 +113,30 @@ class GameViewController: UIViewController, UITextFieldDelegate {
 
     }
     
-    func dismissKeyboard() -> Bool {
+    func dismissKeyboard(textField: UITextField) -> Bool {
         movieNameInput.resignFirstResponder()
         view.endEditing(true)
-        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GameViewController.dismissKeyboard))
         view.removeGestureRecognizer(tap)
         return true
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        
+        self.submitAnswer()
+        return true
+    }
     
     func textFieldDidBeginEditing(movieNameInput: UITextField) {
-        animateViewMoving(true, moveValue: 250)
+        animateViewMoving(true, moveValue: 210)
         
         //Handle Keyboard closing on blur
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(GameViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     func textFieldDidEndEditing(textField: UITextField) {
-        animateViewMoving(false, moveValue: 250)
+        animateViewMoving(false, moveValue: 210)
 
     }
     
@@ -159,6 +166,33 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         print("skip")
     }
     
+    func submitAnswer() {
+        
+        let answer = self.movieNameInput.text ?? "null"
+        
+        UserManager.submitScore(answer, hints: self.openHints, movieId: self.movie.id) { (result) in
+        
+            if result == true {
+                self.congratsPopinController = CongratsPopinController(nibName: "congratPopin", bundle: nil)
+                self.congratsPopinController.showInView(self.view, animated: true, hints: self.openHints)
+                let nextMovieGesture = UITapGestureRecognizer (target: self, action: #selector(GameViewController.nextMovie))
+                
+                self.congratsPopinController.movieNextButton.addGestureRecognizer(nextMovieGesture)
+                self.congratsPopinController.movieNextButton.userInteractionEnabled = true
+                
+                let movieDetailsGesture = UITapGestureRecognizer (target: self, action: #selector(GameViewController.movieDetails))
+                
+                self.congratsPopinController.movieDetailsButton.addGestureRecognizer(movieDetailsGesture)
+                self.congratsPopinController.movieDetailsButton.userInteractionEnabled = true
+            
+            } else {
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+                self.movieNameInput.text = ""
+            }
+        }
+        
+    }
+    
     func nextMovie() {
 
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -173,6 +207,21 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         
         self.navigationController?.pushViewController(nextMovie, animated: false)
 
+    }
+    
+    func movieDetails() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let movieDetails = storyboard.instantiateViewControllerWithIdentifier("MovieDetailsView") as! MovieDetailsViewController
+        movieDetails.movieID = self.movie.id
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
+        
+        self.navigationController?.pushViewController(movieDetails, animated: false)
+        
     }
     
     func showHint(gesture: UIGestureRecognizer) {

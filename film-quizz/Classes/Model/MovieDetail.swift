@@ -11,7 +11,7 @@ import Foundation
 class MovieDetail {
     
     var id: String!
-    var name: String!
+    var title: String!
     var excerpt: String!
     var coverPath: String!
     var actors: [Actor]!
@@ -24,13 +24,12 @@ class MovieDetail {
     
     init(id: String, name: String, excerpt: String, coverPath: String, actors: [Actor], genre: String, releaseDate: String){
         self.id = id
-        self.name = name
+        self.title = name
         self.excerpt = excerpt
         self.coverPath = coverPath
         self.actors = actors
         self.genre = genre
         self.releaseDate = releaseDate
-
     }
     
 }

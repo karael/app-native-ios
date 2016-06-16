@@ -16,7 +16,10 @@ class MovieManager {
 
     
     typealias GameMovies = (movie: Movie) -> Void
-    typealias resultMovieDetail = (movieDetail: MovieDetail) -> Void
+    typealias ResultMovieDetail = (movieDetail: MovieDetail) -> Void
+    typealias ResultActorsDetail = (actors: [Actor]) -> Void
+    typealias RelatedMoviesList = (moviesList: [MovieList]) -> Void
+    
     
     static let headers = [
         "X-app-UUID": apiIdentity,
@@ -41,10 +44,69 @@ class MovieManager {
         }
     }
     
-    func getDetailsMovie(movieId: String) {
+    static func getDetailsMovie(movieId: String, resultMovieDetail : ResultMovieDetail) {
         
-//        let getDetailsMovieUrl = UrlBuilder.singleMovieUrl(movieId)
+        let getDetailsMovieUrl = UrlBuilder.singleMovieUrl(movieId)
         
-//        return getDetailsMovieUrl
+        Alamofire.request(.GET, getDetailsMovieUrl, headers: headers).responseJSON{ (response) in
+            
+            var movieDetails = MovieDetail()
+            
+            if let json = response.result.value as? [String: AnyObject] {
+                let jsonResult = JSON(json)["data"]
+                print(jsonResult["overview"])
+                
+                movieDetails = MovieDetail(json: jsonResult)
+            }
+            resultMovieDetail(movieDetail: movieDetails)
+        }
+    }
+    
+    static func getActors(movieId: String, resultActorsDetail: ResultActorsDetail) {
+        
+        let getActorsUrl = UrlBuilder.getActorsUrl(movieId)
+        
+        Alamofire.request(.GET, getActorsUrl, headers: headers).responseJSON { (response) in
+            
+            var actorsArray = [Actor]()
+            
+            if let json = response.result.value as? [String: AnyObject] {
+                
+                if let data = json["data"] as? [AnyObject] {
+                    
+                    for result in data {
+                        let jsonResult = JSON(result)
+                        
+                        let actor = Actor(json: jsonResult)
+                        actorsArray.append(actor)
+                    }
+                }
+                resultActorsDetail(actors: actorsArray)
+            }
+        }
+    }
+    
+    static func getRelatedList(movieId: String, relatedMoviesList: RelatedMoviesList) {
+        
+        let getSuccessList = UrlBuilder.getRelatedListUrl(movieId)
+        
+        Alamofire.request(.GET, getSuccessList, headers: headers).responseJSON { (response) in
+            
+            var movieListArray = [MovieList]()
+            
+            if let json = response.result.value as? [String: AnyObject] {
+                
+                if let data = json["data"] as? [AnyObject] {
+                    
+                    for result in data {
+                        let jsonResult = JSON(result)
+                        
+                        let movieList = MovieList(json: jsonResult)
+                        movieListArray.append(movieList)
+                    }
+                }
+                relatedMoviesList(moviesList: movieListArray)
+            }
+        }
     }
 }

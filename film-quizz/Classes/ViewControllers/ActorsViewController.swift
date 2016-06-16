@@ -8,27 +8,25 @@
 
 import UIKit
 
-class SuccessViewController: UIViewController {
+class ActorsViewController: UIViewController {
     
+
+    @IBOutlet weak var actorsTableView: UITableView!
     
-    @IBOutlet weak var moviesListTableView: UITableView!
+    var movieId: String!
     
-    
-    lazy var moviesList = [MovieList]()
+    lazy var actorsList = [Actor]()
     lazy var items = [[AnyObject]]()
     
     override func viewDidLoad() {
         
-        UserManager.getSuccessList() { (moviesList) in
-        
-            self.reloadMoviesList(moviesList)
-            for movieList in moviesList {
-                print(movieList.title)
-            }
+        MovieManager.getActors(self.movieId) { (actorsList) in
+            
+            self.reloadActorsList(actorsList)
             
         }
         
-        self.title = "Successes"
+        self.title = "Actors"
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         let titleTint: NSDictionary = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.titleTextAttributes = titleTint as? [String : AnyObject]
@@ -47,33 +45,33 @@ class SuccessViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func reloadMoviesList(moviesList: [MovieList]){
+    func reloadActorsList(actorsList: [Actor]){
         
-        self.moviesList.removeAll()
-        self.moviesList += moviesList
+        self.actorsList.removeAll()
+        self.actorsList += actorsList
         
-        self.items.append(self.moviesList)
+        self.items.append(self.actorsList)
         
-//        self.moviesListTableView.userInteractionEnabled = false
-        self.moviesListTableView.reloadData()
+        //        self.moviesListTableView.userInteractionEnabled = false
+        self.actorsTableView.reloadData()
         
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> SuccessTableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> ActorTableViewCell {
         let section = indexPath.section
         let row = indexPath.row
         
         if section == 0 {
-            let movieListCell = tableView.dequeueReusableCellWithIdentifier(SuccessTableViewCell.identifier, forIndexPath: indexPath) as! SuccessTableViewCell
-        
-            let movieList = moviesList[row]
-        
-            movieListCell.movieList = movieList
-            movieListCell.selectionStyle = .None
-        
-            return movieListCell
+            let actorCell = tableView.dequeueReusableCellWithIdentifier(ActorTableViewCell.identifier, forIndexPath: indexPath) as! ActorTableViewCell
+            
+            let actorList = actorsList[row]
+            
+            actorCell.actor = actorList
+            actorCell.selectionStyle = .None
+            
+            return actorCell
         } else {
-            return SuccessTableViewCell()
+            return ActorTableViewCell()
         }
     }
     

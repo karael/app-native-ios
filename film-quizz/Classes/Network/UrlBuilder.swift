@@ -17,7 +17,7 @@ class UrlBuilder {
         return url
     }
     
-    static func createUserUrl(UUID: String) -> String {
+    static func createUserUrl() -> String {
         let url = "\(apibase)/api/user"
         return url
     }
@@ -27,7 +27,7 @@ class UrlBuilder {
         return url
     }
     
-    static func successMoviesUrl() -> String {
+    static func successListUrl() -> String {
         let url = "\(apibase)/api/movies/success"
         return url
     }
@@ -37,24 +37,28 @@ class UrlBuilder {
         return url
     }
     
-    static func illuUrl(illuPath: String) -> String {
-        let url = "\(apibase)/assets/illus/\(illuPath)"
-        return url
-    }
-    
-    static func posteUrl(posterPath: String) -> String{
-        let url = "\(apibase)/\(posterPath)"
-        return url
-    }
-    
-    static func thumbnailUrl(thumbnailUrl: String) -> String{
-        let url = "\(apibase)/\(thumbnailUrl)"
-        return url
-    }
-    
     static func detailMovieUrl(movieId: Int) -> String {
         let url = "\(apibase)/api/movie/\(movieId)"
         return url
     }
     
+    static func postScoreUrl() -> String {
+        let url = "\(apibase)/api/score"
+        return url
+    }
+    
+    static func getActorsUrl(movieId: String) -> String {
+        let url = "\(apibase)/api/movie/\(movieId)/cast"
+        return url
+    }
+    
+    static func getActorPictureUrl(fileName: String) -> String {
+        let url = "http://image.tmdb.org/t/p/original/\(fileName)"
+        return url
+    }
+    
+    static func getRelatedListUrl(movieId: String) -> String {
+        let url = "\(apibase)/api/movie/\(movieId)/related"
+        return url
+    }
 }
